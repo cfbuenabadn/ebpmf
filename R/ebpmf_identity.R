@@ -199,7 +199,11 @@ ebpmf_identity = function(X,K,
       res$ql$El = t(t(res$ql$El) * sl)
       res$ql$Elogl = res$ql$Elogl + outer(rep(1,n),log(sl))
       res$qf$Ef = t(t(res$qf$Ef) * sf)
-      res$qf$Ef_smooth = t(t(res$qf$Ef_smooth) * sf)
+      if(smooth_F){
+        res$qf$Ef_smooth = t(t(res$qf$Ef_smooth) * sf)
+      }else{
+        res$qf$Ef_smooth = NULL
+      }
       res$qf$Elogf = res$qf$Elogf + outer(rep(1,p),log(sf))
       res$qf$Elogf_smooth = res$qf$Elogf_smooth + outer(rep(1,p),log(sf))
     }
